@@ -1,0 +1,399 @@
+:root {
+    --primary-blue: #00b4d8;
+    --secondary-blue: #90e0ef;
+    --accent-blue: #0077b6;
+    --mint: #b9fbc0;
+    --soft-yellow: #fbf8cc;
+    --text-color: #023e8a;
+    --bg-color: #caf0f8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-color: var(--bg-color);
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.4) 0%, transparent 25%),
+        radial-gradient(circle at 50% 50%, rgba(144, 224, 239, 0.3) 0%, transparent 50%),
+        url('assets/asset/bg.png');
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    /* Pake min-height biar bisa memanjang */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    /* Biar nggak goyang kanan kiri */
+    position: relative;
+    padding: 20px 0;
+    /* Tambah padding atas bawah buat mobile */
+}
+
+/* Ambient Decorations Layer */
+.ambient-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.ambient-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(144, 224, 239, 0.4) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    filter: blur(60px);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: moveClouds 20s linear infinite;
+}
+
+.cloud-1 {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -100px;
+}
+
+.cloud-2 {
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    right: -150px;
+    animation-direction: reverse;
+}
+
+@keyframes moveClouds {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(60px, 40px);
+    }
+}
+
+/* Ambient Stickers */
+.sticker {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+    opacity: 0.8;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+    animation: floatSticker 5s ease-in-out infinite;
+    object-fit: contain;
+}
+
+
+@keyframes floatSticker {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(10px, -20px) rotate(10deg);
+    }
+}
+
+.sticker-1 {
+    top: 10%;
+    left: 10%;
+}
+
+.sticker-2 {
+    top: 15%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.sticker-3 {
+    bottom: 10%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.sticker-4 {
+    bottom: 15%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+/* Music Overlay */
+#music-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(202, 240, 248, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+    flex-direction: column;
+}
+
+.play-card {
+    background: white;
+    padding: 40px;
+    border-radius: 40px;
+    box-shadow: 0 15px 0 var(--primary-blue);
+    text-align: center;
+    border: 4px solid var(--primary-blue);
+    max-width: 320px;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.5) translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes smoothFade {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Container */
+.container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 40px;
+    padding: 30px;
+    /* Kurangi dikit biar lebih lega di HP */
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 15px 0 var(--secondary-blue);
+    border: 6px solid var(--secondary-blue);
+    position: relative;
+    z-index: 10;
+    animation: float 4s ease-in-out infinite;
+    margin: 20px auto;
+    /* Tambah margin biar nggak nempel layar */
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.couple-img-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.couple-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 40px;
+    object-fit: cover;
+    border: 5px solid var(--primary-blue);
+    transform: rotate(-3deg);
+    transition: all 0.3s;
+}
+
+.couple-img:hover {
+    transform: rotate(0deg) scale(1.1);
+}
+
+.heart-icon {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--primary-blue);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border: 3px solid white;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--accent-blue);
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+p.message {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    background: white;
+    border: 2px dashed var(--secondary-blue);
+    padding: 20px;
+    border-radius: 25px;
+    font-weight: 400;
+}
+
+.counter {
+    margin-bottom: 25px;
+}
+
+.counter small {
+    color: #a29bfe;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.counter span {
+    display: block;
+    font-size: 2rem;
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+.btn {
+    background: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 8px 0 #0077b6;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #0077b6;
+}
+
+/* Falling Hearts */
+.falling-heart {
+    position: absolute;
+    pointer-events: none;
+    z-index: 100;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Removed redundant cloud styles, moved to ambient-layer */
+
+
+/* Custom Audio Player Stylings (Hidden) */
+audio {
+    display: none;
+}
+
+/* Biar makin manis di HP sayangg ❤️ */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+        /* Kecilin dikit tulisannya */
+    }
+
+    .container {
+        padding: 25px 20px;
+        width: 85%;
+        border-radius: 30px;
+        border-width: 4px;
+    }
+
+    .couple-img {
+        width: 130px;
+        height: 130px;
+        border-radius: 30px;
+    }
+
+    p.message {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    .counter span {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+
+    .sticker {
+        width: 60px;
+        /* Stiker di HP dikecilin aja yaa */
+        height: 60px;
+    }
+}

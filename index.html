@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Monthversary Sayangg ❤️</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fredoka:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Ambient Decorations -->
+    <div class="ambient-layer">
+        <div class="ambient-glow"></div>
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+
+        <img src="assets/asset/stickers.png" class="sticker sticker-1" alt="kawaii" style="filter: hue-rotate(180deg);">
+        <img src="assets/asset/stickers.png" class="sticker sticker-2" alt="kawaii" style="filter: hue-rotate(200deg);">
+        <img src="assets/asset/stickers.png" class="sticker sticker-3" alt="kawaii" style="filter: hue-rotate(220deg);">
+        <img src="assets/asset/stickers.png" class="sticker sticker-4" alt="kawaii" style="filter: hue-rotate(190deg);">
+    </div>
+
+
+    <div id="music-overlay" onclick="startEverything()">
+        <div class="play-card">
+            <div style="font-size: 50px; margin-bottom: 10px;">🎁</div>
+            <h2 style="font-family: 'Dancing Script', cursive; color: var(--accent-blue); font-size: 2rem;">Ada kejutan
+                kecill buat kamuuu sayangg...</h2>
+            <p style="color: #888; margin-top: 10px;">Diklik duluu yaa biar kebuka cintaa ✨</p>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="assets/asset/lagu.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <div class="couple-img-wrapper">
+            <img src="https://media.tenor.com/nJD3n3PMz7UAAAAi/dudu.gif" alt="Couple" class="couple-img">
+            <div class="heart-icon">🤍</div>
+
+            <h1>Happy Monthversary!</h1>
+            <p class="message">
+                "makasiiii yaa sayangg udaaa sabarr banget amaaa akuu, udaa jadii yangg paling baikk dan palingg lucu
+                imuutt
+                kyuttt buat akuu..
+                kalau aku ada salahh aku minta maaf yaa sayanggg,
+                takutt bangett kamuu pergiii kitaa udaa lumayaann lamaa yaa ga lamaa" jugaa sii heheee, tapi yaa gimanaa
+                gituu akuu
+                udaa terlanjurr sayangg dann cintaa amaa kamuu akuu harapp kitaa bisaa selamanyaa oteeii???"
+                <br>
+                I love youuu sayanggggg🫶
+            </p>
+            <!-- <br>
+        <p class="message">
+           
+        </p> -->
+
+            <div class="counter">
+                <small>Kitaa udah barengan selamaa:</small>
+                <span id="days-count">...</span>
+            </div>
+
+            <button class="btn" onclick="celebrate()">Klik akuu sayangg! 🤍</button>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>
